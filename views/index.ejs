@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand"><b><em>Share-Easy</em></b>  <i class="fa-solid fa-file fa-beat-fade fa-sm" style="color: #1354c3;"></i></a>
+    <form class="form-inline">
+      <p class=" my-2 my-sm-0" ><%= user %></p>
+      <button class="btn btn-outline-danger my-2 mx-3 my-sm-0" type="submit"><a id="b" href="/logout">Logout</a></button>
+    </form>
+  </nav>
+  <div class="con">
+    <div class="box">
+ 
+      <form action="/file" method="POST" enctype="multipart/form-data" >
+        <!-- <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div> -->
+        <div class="icon"><img src="/images/FileSearchgif.gif" width="130px" height="160px" style="margin-left: 60px;"></div>
+        <input type="file" name="file" id="" style="margin-left: 140px;"> <br>
+        <button id="btn" style="margin-left: 120px;">Submit</button>
+      </form>
+  <div class="input">
+    <%if(name){%>
+      <input type="text" value="<%=name%>" id="copy">
+        <button onclick=" myFunction()" id="c">
+        <i  class="far fa-copy"></i>
+      </button>
+      <%}%>
+   </div>
+   <br>
+   <div style="border:4px blue double; padding: 5px;">
+    <p style="font-style: italic;"><b>Send through Email</b></p>
+    Sender:&emsp;<input type="email" name="sender" id="sender"><br>
+    <br>
+    Receiver: <input type="email" name="receiver" id="receiver">
+  </div>  
+  </div>
+  
+    <div class="box2">
+      <img src="/images/filegif.gif" alt="">
+    </div>
+  </div>
+ 
+  
+
+</body>
+<script src="/javascripts/index.js"></script>
+</html>

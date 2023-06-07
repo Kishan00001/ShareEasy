@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: rgba(0, 68, 255, 0.808);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .box{
+    height: 48vh;
+    width: 34%;
+    margin-top: 10rem;
+    border-radius: 1rem;
+    background-color: white;
+    display: flex;
+    box-shadow:8px 8px 12px -7px rgb(55 66 102);
+    justify-content: center;
+    align-items: center;
+flex-direction: column;
+    }
+    .box img{
+        width: 30%;
+        height: 20vh;
+    }
+    /* button{
+        padding: 5px 20px;
+        color: white;
+        background-color: rgba(0, 68, 255, 0.808);
+        outline: none;
+        border: 2px solid orange;
+    } */
+    p{
+        font-weight: 900;
+    }
+    a{
+        text-decoration: none;
+        color: white;font-weight: 500;
+
+    }
+    a:hover{
+        color: gery;
+        font-weight: bold;
+    }
+    
+    button {background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%)}
+    button{
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          button:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
+</style>
+<body>
+<div class="box">
+<img src="/images/DownloadCloud.gif" alt="">
+<%if(name){%>
+<p><%=name%></p>
+
+<p>Size:- <%= parseInt(siz/1000) %> KB</p>
+<button ><a href="/download/<%=name%>">Download</a></button>
+<%}%>
+
+</div>
+</body>
+</html>
