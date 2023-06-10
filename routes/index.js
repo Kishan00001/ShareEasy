@@ -64,7 +64,7 @@ router.post("/file", upload, function (req, res, next) {
   datas.save((err, doc) => {
     if (err) throw err;
     console.log(doc);
-    const files = `https://shareeasy.onrender.com/show${doc.dataname}`
+    const files = `https://shareeasy.onrender.com/show/${doc.dataname}`
     // const files = `http://localhost:3000/show/${doc.dataname}`;
     res.render("index", { title: "Express", name: files ,user:loginuser});
   });
@@ -165,7 +165,7 @@ router.post('/email',async (req,res)=>{
   const receiver = req.body.receiver;
   // const files = `http://localhost:3000/show/${doc.dataname}`;
   const link = req.body.link;//console.log(link);
-  const result = link.slice(31,link.length);//console.log(result);
+  const result = link.slice(36,link.length);//console.log(result);
   // const result = link.slice(27,link.length);//console.log(result);
   
   var docs = data.findOne({ dataname: result }).select('datasize'); //selecting datasize field
