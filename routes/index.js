@@ -186,10 +186,12 @@ router.post('/email',async (req,res)=>{
         })
   } )
  // res.render("index", { title: "Express", name: "Kishan" ,user:loginuser});
-  return res.send({success:true});
+  return res.render('mailSuccess');
   // return res.send();
 })
-
+// router.get('/about',(req,res)=>{
+//   res.render('about');
+// })
 router.get('/logout', function (req, res, next) {
   localStorage.removeItem('loginuser');
   localStorage.removeItem('usertoken');

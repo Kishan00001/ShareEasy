@@ -25,8 +25,8 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 65vh;
-  width: 38%;
+  height: 75vh;
+  width: 33%;
   background-color: white;
   border-radius: 20px;
   box-shadow: 8px 8px 12px -7px rgb(0, 68, 255);
@@ -100,3 +100,4 @@ border: none;
 #c:hover{
   color: blue;
 }
+html{overflow-y: hidden;}

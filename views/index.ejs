@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Send File</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -25,7 +25,7 @@
       <form action="/file" method="POST" enctype="multipart/form-data" >
         <!-- <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div> -->
         <div class="icon"><img src="/images/FileSearchgif.gif" width="130px" height="160px" style="margin-left: 60px;"></div>
-        <input type="file" name="file" id="" style="margin-left: 140px;"> <br>
+        <input type="file" name="file" id="" style="margin-left: 140px;"><br>
         <button id="btn" style="margin-left: 120px;">Submit</button>
       </form>
   <div class="input">
@@ -38,13 +38,13 @@
    </div>
    <br>
    <form action="/email" method="POST">
-   <div style="border:4px blue double; padding: 5px;">
+   <div style="border:4px #4070f4 double; padding: 5px;border-radius: 5%;">
     <p style="font-style: italic;"><b>Send through Email</b></p>
     Sender:&emsp;<input type="email" name="sender" id="sender"><br>
     <br>
     Receiver: <input type="email" name="receiver" id="receiver">
-    <input type="hidden" value="<%=name%>" name="link">
-    <button type="submit">SendFile</button>
+    <input type="hidden" value="<%=name%>" name="link"><br>
+    <button type="submit" id="btn">SendFile</button>
   </div>  
 </form>
   </div>
