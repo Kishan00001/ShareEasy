@@ -6,7 +6,7 @@ const path = require("path");
 const data = require("../modules/data");
 const sign_data = require("../modules/sign_data");
 var jwt = require("jsonwebtoken");
-const wbm = require('wbm');
+// const wbm = require('wbm');
 /* GET home page. */
 router.use(express.static(__dirname + "./public/"));
 var Storage = multer.diskStorage({
@@ -27,19 +27,20 @@ if (typeof localStorage === "undefined" || localStorage === null) {
   localStorage = new LocalStorage("./scratch");
 }
 // var globalname="";
-//All the routes start here!!!
-wbm.start().then(async () => {
-  const phones = ['9178033667'];
-  const message = 'Good Morning.';
-  await wbm.send(phones, message);
-  await wbm.end();
-}).catch(err => console.log(err));
-//Home Page Route
+// //All the routes start here!!!
+// wbm.start().then(async () => {
+//   const phones = ['9178033667'];
+//   const message = 'Good Morning.';
+//   await wbm.send(phones, message);
+//   await wbm.end();
+// }).catch(err => console.log(err));
+// //Home Page Route
 router.get("/", function (req, res, next) {
   res.render("homepage");
 });
 
 //File-Share Route
+
 router.get("/file", function (req, res, next) {
   var loginuser=localStorage.getItem('loginuser');
   if(loginuser)
@@ -152,9 +153,40 @@ router.post("/login", (req, res) => {
     else res.render("login", { username: "Worng Username" });
   });
 });
-
-
-//logout Route
+//email
+router.get('/email',(req,res)=>{
+  var loginuser=localStorage.getItem('loginuser');
+  res.render("index", { title: "Express", name: "Kishan" ,user:loginuser});
+})
+router.post('/email',async (req,res)=>{
+  var loginuser=localStorage.getItem('loginuser');
+  const sender = req.body.sender;
+  const receiver = req.body.receiver;
+  // const files = `http://localhost:3000/show/${doc.dataname}`;
+  const link = req.body.link;//console.log(link);
+  const result = link.slice(27,link.length);//console.log(result);
+  
+  var docs = data.findOne({ dataname: result }).select('datasize'); //selecting datasize field
+  const gotfile = await docs.exec();// This helps to execute the query at a later time 
+  const filesize = gotfile.datasize;// console.log(filesize);
+  
+  const sendMail = require('./email');
+      await sendMail({
+      from:sender,
+      to:receiver,
+      subject:"Share Easy File Sharing",
+      text:`${sender} shared a file with you.`,
+      html:require('./emailTemplate')({
+          emailFrom:sender,
+          downloadLink:`${link}`,
+          size:parseInt(filesize/1000)+' KB',
+          expires:'15 minutes'
+        })
+  } )
+ // res.render("index", { title: "Express", name: "Kishan" ,user:loginuser});
+  return res.send({success:true});
+  // return res.send();
+})
 
 router.get('/logout', function (req, res, next) {
   localStorage.removeItem('loginuser');

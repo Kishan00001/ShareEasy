@@ -37,12 +37,16 @@
       <%}%>
    </div>
    <br>
+   <form action="/email" method="POST">
    <div style="border:4px blue double; padding: 5px;">
     <p style="font-style: italic;"><b>Send through Email</b></p>
     Sender:&emsp;<input type="email" name="sender" id="sender"><br>
     <br>
     Receiver: <input type="email" name="receiver" id="receiver">
+    <input type="hidden" value="<%=name%>" name="link">
+    <button type="submit">SendFile</button>
   </div>  
+</form>
   </div>
   
     <div class="box2">
