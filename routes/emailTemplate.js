@@ -7,12 +7,6 @@ module.exports = ({emailFrom, downloadLink, size, expires}) => {
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <title>Simple Transactional Email</title>
                 <style>
-                /* -------------------------------------
-                    INLINED WITH htmlemail.io/inline
-                ------------------------------------- */
-                /* -------------------------------------
-                    RESPONSIVE AND MOBILE FRIENDLY STYLES
-                ------------------------------------- */
                 @media only screen and (max-width: 620px) {
                 table[class=body] h1 {
                     font-size: 28px !important;
@@ -55,9 +49,6 @@ module.exports = ({emailFrom, downloadLink, size, expires}) => {
                 }
                 }
             
-                /* -------------------------------------
-                    PRESERVE THESE STYLES IN THE HEAD
-                ------------------------------------- */
                 @media all {
                 .ExternalClass {
                     width: 100%;
@@ -148,7 +139,7 @@ module.exports = ({emailFrom, downloadLink, size, expires}) => {
                             <tr>
                             <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
                                 <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">ShareEasy, Bhubaneswar</span>
-                                <br> Want to share a file? <a href="http://localhost:3000" style="text-decoration: underline; color: #999999; font-size: 12px; text-align: center;"> use ShareEasy</a>.
+                                <br> Want to share a file? <a href="http://shareeasy.onrender.com" style="text-decoration: underline; color: #999999; font-size: 12px; text-align: center;"> use ShareEasy</a>.
                             </td>
                             </tr>
                             <tr>

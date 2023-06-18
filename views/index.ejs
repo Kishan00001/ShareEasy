@@ -19,43 +19,34 @@
       <button class="btn btn-outline-danger my-2 mx-3 my-sm-0" type="submit"><a id="b" href="/logout">Logout</a></button>
     </form>
   </nav>
-  <div class="con">
-    <div class="box">
- 
-      <form action="/file" method="POST" enctype="multipart/form-data" >
-        <!-- <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div> -->
-        <div class="icon"><img src="/images/FileSearchgif.gif" width="130px" height="160px" style="margin-left: 60px;"></div>
-        <input type="file" name="file" id="" style="margin-left: 140px;"><br>
-        <button id="btn" style="margin-left: 120px;">Submit</button>
-      </form>
-  <div class="input">
-    <%if(name){%>
-      <input type="text" value="<%=name%>" id="copy">
-        <button onclick=" myFunction()" id="c">
-        <i  class="far fa-copy"></i>
-      </button>
-      <%}%>
-   </div>
-   <br>
-   <form action="/email" method="POST">
-   <div style="border:4px #4070f4 double; padding: 5px;border-radius: 5%;">
-    <p style="font-style: italic;"><b>Send through Email</b></p>
-    Sender:&emsp;<input type="email" name="sender" id="sender"><br>
-    <br>
-    Receiver: <input type="email" name="receiver" id="receiver">
-    <input type="hidden" value="<%=name%>" name="link"><br>
-    <button type="submit" id="btn">SendFile</button>
-  </div>  
-</form>
-  </div>
-  
-    <div class="box2">
-      <img src="/images/filegif.gif" alt="">
-    </div>
-  </div>
- 
-  
-
+	<div class="con">
+    	<div class="box">
+      		<form action="/file" method="POST" enctype="multipart/form-data" >
+        		<div class="icon"><img src="/images/FileSearchgif.gif" width="130px" height="160px" style="margin-left: 60px;"></div>
+        		<input type="file" name="file" id="" style="margin-left: 140px;"><br>
+        		<button id="btn" style="margin-left: 120px;">Submit</button>
+      		</form>
+  			<div class="input">
+    			<%if(name){%>
+      			<input type="text" value="<%=name%>" id="copy">
+        		<button onclick=" myFunction()" id="c">
+        			<i  class="far fa-copy"></i>
+      			</button>
+      			<%}%>
+   			</div>
+   			<br>
+			<form action="/email" method="POST">
+				<div style="border:4px #4070f4 double; padding: 5px;border-radius: 5%;">
+    				<p style="font-style: italic;"><b>Send through Email</b></p>
+	    			<!-- Sender:&emsp;<input type="email" name="sender" id="sender"><br><br> -->
+   	 				<b>Receiver: </b><input type="email" name="receiver" id="receiver" style="width: fit-content;">
+    				<input type="hidden" value="<%=name%>" name="link"><br>
+    				<button type="submit" id="btn">SendFile</button>
+  				</div>  
+			</form>
+		</div>
+   		<div class="box2"><img src="/images/filegif.gif" alt=""></div>
+  	</div>
 </body>
 <script src="/javascripts/index.js"></script>
 </html>
