@@ -23,7 +23,7 @@
     	<div class="box">
       		<form action="/file" method="POST" enctype="multipart/form-data" >
         		<div class="icon"><img src="/images/FileSearchgif.gif" width="130px" height="160px" style="margin-left: 60px;"></div>
-        		<input type="file" name="file" id="" style="margin-left: 140px;"><br>
+        		<input type="file" name="file" id="filebtn" style="margin-left: 140px;"><br>
         		<button id="btn" style="margin-left: 120px;">Submit</button>
       		</form>
   			<div class="input">
@@ -36,16 +36,16 @@
    			</div>
    			<br>
 			<form action="/email" method="POST">
-				<div style="border:4px #4070f4 double; padding: 5px;border-radius: 5%;">
-    				<p style="font-style: italic;"><b>Send through Email</b></p>
+				<div style=" padding: 5px;padding-bottom: 0px; border-radius: 10px;outline-style: outset;outline-color: aqua;outline-width: 5px;">
+    				<p style="font-style: italic;"><b>Send Through Email</b></p>
 	    			<!-- Sender:&emsp;<input type="email" name="sender" id="sender"><br><br> -->
-   	 				<b>Receiver: </b><input type="email" name="receiver" id="receiver" style="width: fit-content;">
+   	 				<b>Receiver: </b><input type="email" name="receiver" id="receiver">
     				<input type="hidden" value="<%=name%>" name="link"><br>
-    				<button type="submit" id="btn">SendFile</button>
+    				<button type="submit" id="btn">Send File</button>
   				</div>  
 			</form>
 		</div>
-   		<div class="box2"><img src="/images/filegif.gif" alt=""></div>
+   		<div class="box2"><img src="/images/FolderUI.png" alt=""></div>
   	</div>
 </body>
 <script src="/javascripts/index.js"></script>

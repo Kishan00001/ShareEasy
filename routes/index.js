@@ -7,7 +7,7 @@ const path = require("path");
 const data = require("../modules/data");
 const sign_data = require("../modules/sign_data");
 var jwt = require("jsonwebtoken");
-// const wbm = require('wbm');
+
 /* GET home page. */
 router.use(express.static(__dirname + "./public/"));
 var Storage = multer.diskStorage({
@@ -31,7 +31,6 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 //All the routes start here!!!
 //Home Page Route
 router.get("/", function (req, res, next) {
-    console.log(process.env);
     res.render("homepage");
 });
 
@@ -155,19 +154,16 @@ router.post('/email',async (req,res)=>{
   var query = sign_data.findOne({ username: loginuser }).select('emails'); //selecting emails field
   const gotemail = await query.exec();// This helps to execute the query at a later time 
   const sender = gotemail.emails;
-  // console.log(loginuser);
-  // console.log(sendermail);
-  // const sender = req.body.sender;
   const receiver = req.body.receiver;
   // const files = `http://localhost:3000/show/${doc.dataname}`;
   const link = req.body.link;//console.log(link);
   const result = link.slice(36,link.length);
   // const result = link.slice(27,link.length);
   
-  var query2 = data.findOne({ dataname: result }).select('datasize'); //selecting datasize field
-  const gotfile = await query2.exec();// This helps to execute the query at a later time 
-  const filesize = gotfile.datasize;// console.log(filesize);
-  
+  var query2 = data.findOne({ dataname: result }).select('datasize'); 
+  const gotfile = await query2.exec();
+  const filesize = gotfile.datasize;
+
   const sendMail = require('./email');
       await sendMail({
       from:sender,
@@ -182,7 +178,6 @@ router.post('/email',async (req,res)=>{
         })
   } )
   return res.render('mailSuccess');
-  // return res.send();
 })
 
 router.get('/logout', function (req, res, next) {
